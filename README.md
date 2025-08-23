@@ -44,7 +44,8 @@ docker compose exec clickhouse clickhouse-client #Запуск ClickHouse
 ```
 ## Пример запроса к БД
 ```bash
-SELECT base_currency, target_currency, rate, ts #Последние 10 записей
+#Последние 10 записей
+SELECT base_currency, target_currency, rate, ts 
 FROM rates
 ORDER BY ts DESC
 LIMIT 10;
