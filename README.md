@@ -97,10 +97,9 @@ ORDER BY ts DESC
 LIMIT 10;
 ```
 ## Автор  
-```bash
 Автор: [Panocode](https://github.com/Panocode)  
 Учебный pet-проект для портфолио.  
-```
+
 ## Идеи для доработки
 ```bash
 - Подключить **Airflow** вместо `schedule`.
