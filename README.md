@@ -32,6 +32,7 @@ fx-pipeline/
 ---
 
 ## Quick Start (TL;DR) Быстрый запуск
+```bash
 git clone https://github.com/Panocode/fx-pipeline.git
 cd fx-pipeline
 cp .env.example .env
@@ -43,6 +44,7 @@ PostgreSQL → localhost:5432
 ClickHouse → localhost:9000
 
 ETL запускается автоматически
+```
 ###  Установка и запуск >1. Клонируем репозиторий
 ```bash
 git clone https://github.com/Panocode/fx-pipeline.git
@@ -50,21 +52,21 @@ cd fx-pipeline
 ```
 ### 2. Настройка окружения
 Скопируйте файл окружения и заполните свои значения:
-
 cp .env.example .env
 Пример .env:
-
+```bash
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=fxdb
 CLICKHOUSE_USER=default
 CLICKHOUSE_PASSWORD=
+```
 ### 3. Запуск проекта Linux|MacOS
 ```bash
 make build
 make up
 ```
-###3.1 Запуск проекта Windows(no make)
+### 3.1 Запуск проекта Windows(no make)
 ps
 ```bash
 docker compose build
