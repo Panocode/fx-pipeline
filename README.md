@@ -36,7 +36,8 @@ fx-pipeline/
 git clone https://github.com/Panocode/fx-pipeline.git
 cd fx-pipeline
 cp .env.example .env
-docker compose up -d scheduler
+docker compose up -d          #Поднять весь стек
+docker compose up -d sheduler #Перезапустить ETL
 
 
 PostgreSQL → localhost:5432
@@ -70,7 +71,8 @@ make up
 ps
 ```bash
 docker compose build
-docker compose up -d scheduler
+docker compose up -d # Поднять весь стек
+docker compose up -d scheduler # Перезапуск ETL
 ```
 ### 4. Проверка сервисов
 ```bash
