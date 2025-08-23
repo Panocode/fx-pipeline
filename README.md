@@ -12,8 +12,7 @@
 - Удобный запуск через Docker + Makefile.
 
 ---
-
-## Структура проекта
+# Структура проекта
 
 fx-pipeline/
 ├── etl/ # Python-скрипты для ETL
@@ -31,7 +30,6 @@ fx-pipeline/
 └── README.md # Документация проекта
 ---
 
-##  Установка и запуск
 ## Quick Start (TL;DR) <!Быстрый запуск!>
 git clone https://github.com/Panocode/fx-pipeline.git
 cd fx-pipeline
@@ -44,8 +42,7 @@ PostgreSQL → localhost:5432
 ClickHouse → localhost:9000
 
 ETL запускается автоматически
-
-### 1. Клонируем репозиторий
+###  Установка и запуск >1. Клонируем репозиторий
 ```bash
 git clone https://github.com/Panocode/fx-pipeline.git
 cd fx-pipeline
@@ -91,7 +88,7 @@ ORDER BY ts DESC
 LIMIT 10;
 
 ## Автор  
-Panocode (Богдан Степан)  
+Автор: [Panocode](https://github.com/Panocode)  
 Учебный pet-проект для портфолио.  
 
 ## Идеи для доработки
