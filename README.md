@@ -36,7 +36,7 @@ fx-pipeline/
 git clone https://github.com/Panocode/fx-pipeline.git
 cd fx-pipeline
 cp .env.example .env
-docker compose up -d
+docker compose up -d scheduler
 
 
 PostgreSQL → localhost:5432
@@ -70,7 +70,7 @@ make up
 ps
 ```bash
 docker compose build
-docker compose up -d
+docker compose up -d scheduler
 ```
 ### 4. Проверка сервисов
 ```bash
