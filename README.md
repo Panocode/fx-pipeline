@@ -19,15 +19,15 @@ fx-pipeline/
 ├─ scheduler.py          # Планировщик задач
 ├─ pipeline.py           # Основная логика загрузки
 ├─ sql/
-│  ├─ postgres_init.sql  # Скрипт для инициализации PostgreSQL
-│  ├─ clickhouse_init.sql# Скрипт для инициализации ClickHouse
-│  └─ sample_data.sql    # Тестовые данные
-├─ .env.example          # Пример переменных окружения
-├─ docker-compose.yml    # Сервисы: Postgres, ClickHouse, ETL
-├─ Dockerfile            # Образ для ETL
-├─ Makefile              # Удобные команды
-├─ requirements.txt      # Python-зависимости
-└─ README.md             # Документация проекта
+│  ├─ postgres_init.sql   # Скрипт для инициализации PostgreSQL
+│  ├─ clickhouse_init.sql # Скрипт для инициализации ClickHouse
+│  └─ sample_data.sql     # Тестовые данные
+├─ .env.example           # Пример переменных окружения
+├─ docker-compose.yml     # Сервисы: Postgres, ClickHouse, ETL
+├─ Dockerfile             # Образ для ETL
+├─ Makefile               # Удобные команды
+├─ requirements.txt       # Python-зависимости
+└─ README.md              # Документация проекта
 ```
 ---
 
