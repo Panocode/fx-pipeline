@@ -38,12 +38,21 @@ cd fx-pipeline
 cp .env.example .env
 docker compose up -d          #Поднять весь стек
 docker compose up -d sheduler #Перезапустить ETL
-
-
+Get-Content .\sql\sample_data.sql | docker exec -i fx-pipeline-postgres-1 psql -U postgres -d fxdb #Загрузка тестовых данных PostgreSQL
+docker compose exec postgres psql -U postgres -d fxdb #Запуск psql + проверкуа данных в PostgreSQL
+docker compose exec clickhouse clickhouse-client #Запуск ClickHouse
+```
+## Пример запроса к БД
+```bash
+SELECT base_currency, target_currency, rate, ts #Последние 10 записей
+FROM rates
+ORDER BY ts DESC
+LIMIT 10;
+```
+## Другое
+```bash
 PostgreSQL → localhost:5432
-
 ClickHouse → localhost:9000
-
 ETL запускается автоматически
 ```
 ###  Установка и запуск >1. Клонируем репозиторий
@@ -93,10 +102,36 @@ docker exec -i fx-pipeline-postgres-1 psql -U postgres -d fxdb < sql/sample_data
 #Пример запроса
 #Последние курсы валют в PostgreSQL:
 
-SELECT base_currency, target_currency, rate, ts
+SELECT base_currency, target_currency, rate, ts #Последние 10 записей
 FROM rates
 ORDER BY ts DESC
 LIMIT 10;
+```
+### 6. Примеры запросов к БД
+```bash 
+SELECT base_currency, target_currency, rate, ts #Все курсы за последние 2 дня
+FROM rates
+WHERE ts >= now() - interval '2 days'
+ORDER BY ts DESC;
+
+SELECT base_currency, target_currency, ROUND(AVG(rate),4) AS avg_rate #Средний курс за 7 дней
+FROM rates
+WHERE ts >= now() - interval '7 days'
+GROUP BY base_currency, target_currency
+ORDER BY avg_rate DESC;
+
+SELECT base_currency, target_currency, #Минимальный и максимальный курс за неделю
+       MIN(rate) AS min_rate,
+       MAX(rate) AS max_rate
+FROM rates
+WHERE ts >= now() - interval '7 days'
+GROUP BY base_currency, target_currency
+ORDER BY base_currency, target_currency;
+
+SELECT base_currency, target_currency, COUNT(*) AS records_count #Кол-во записей по каждоой валютной паре
+FROM rates
+GROUP BY base_currency, target_currency
+ORDER BY records_count DESC;
 ```
 ## Автор  
 Автор: [Panocode](https://github.com/Panocode)  
