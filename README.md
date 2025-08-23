@@ -102,25 +102,29 @@ docker exec -i fx-pipeline-postgres-1 psql -U postgres -d fxdb < sql/sample_data
 #Пример запроса
 #Последние курсы валют в PostgreSQL:
 
-SELECT base_currency, target_currency, rate, ts #Последние 10 записей
+#Последние 10 записей
+SELECT base_currency, target_currency, rate, ts 
 FROM rates
 ORDER BY ts DESC
 LIMIT 10;
 ```
 ### 6. Примеры запросов к БД
 ```bash 
-SELECT base_currency, target_currency, rate, ts #Все курсы за последние 2 дня
+#Все курсы за последние 2 дня
+SELECT base_currency, target_currency, rate, ts 
 FROM rates
 WHERE ts >= now() - interval '2 days'
 ORDER BY ts DESC;
 
-SELECT base_currency, target_currency, ROUND(AVG(rate),4) AS avg_rate #Средний курс за 7 дней
+#Средний курс за 7 дней
+SELECT base_currency, target_currency, ROUND(AVG(rate),4) AS avg_rate 
 FROM rates
 WHERE ts >= now() - interval '7 days'
 GROUP BY base_currency, target_currency
 ORDER BY avg_rate DESC;
 
-SELECT base_currency, target_currency, #Минимальный и максимальный курс за неделю
+#Минимальный и максимальный курс за неделю
+SELECT base_currency, target_currency, 
        MIN(rate) AS min_rate,
        MAX(rate) AS max_rate
 FROM rates
@@ -128,7 +132,8 @@ WHERE ts >= now() - interval '7 days'
 GROUP BY base_currency, target_currency
 ORDER BY base_currency, target_currency;
 
-SELECT base_currency, target_currency, COUNT(*) AS records_count #Кол-во записей по каждоой валютной паре
+#Кол-во записей по каждоой валютной паре
+SELECT base_currency, target_currency, COUNT(*) AS records_count 
 FROM rates
 GROUP BY base_currency, target_currency
 ORDER BY records_count DESC;
