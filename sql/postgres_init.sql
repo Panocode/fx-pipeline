@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS fx_rates (
+CREATE TABLE IF NOT EXISTS rates (
     id SERIAL PRIMARY KEY,
-    base_currency VARCHAR(3),
-    target_currency VARCHAR(3),
-    rate NUMERIC,
-    ts TIMESTAMP DEFAULT now()
+    base_currency VARCHAR(3) NOT NULL,
+    target_currency VARCHAR(3) NOT NULL,
+    rate NUMERIC(12,6) NOT NULL,
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
