@@ -5,6 +5,7 @@
 * Life-time логи
 
 **Full Changelog**: https://github.com/Panocode/fx-pipeline/commits/v2.0
+
 `update soon:`
 `README`
 `commentaries`
