@@ -10,6 +10,7 @@
 `commentaries`
 > docs/comms/readme not actual for v2.0
 
+### Actual to V1.0 ^_^
 Учебный проект по построению **ETL-пайплайна** для загрузки валютных курсов в PostgreSQL и ClickHouse.  
 Сервис скачивает курсы валют (USD → другие валюты) через API, сохраняет их в Postgres (оперативное хранилище), а затем дублирует в ClickHouse (аналитическое хранилище).
 
