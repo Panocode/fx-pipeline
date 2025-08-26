@@ -4,7 +4,8 @@ POSTGRES_CONTAINER=fx-pipeline-postgres-1
 CLICKHOUSE_CONTAINER=fx-pipeline-clickhouse-1
 DB_NAME=fxdb
 DB_USER=postgres
-
+cli:
+	python cli.py
 build:
 	docker compose build
 

@@ -3,3 +3,7 @@ psycopg2-binary
 clickhouse-driver
 schedule
 python-dotenv
+psycopg2-binary
+clickhouse-driver
+InquirerPy
+tabulate

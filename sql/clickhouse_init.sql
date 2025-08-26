@@ -9,3 +9,14 @@ CREATE TABLE IF NOT EXISTS fxdb.fx_rates
 )
 ENGINE = MergeTree()
 ORDER BY (ts, base_currency, target_currency);
+
+-- доп таблица
+CREATE TABLE IF NOT EXISTS fxdb.rates
+(
+    base_currency String,
+    target_currency String,
+    rate Float64,
+    ts DateTime
+)
+ENGINE = MergeTree()
+ORDER BY ts;

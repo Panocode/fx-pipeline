@@ -35,3 +35,5 @@ services:
       - postgres
       - clickhouse
     restart: always
+    env_file:
+      - .env
